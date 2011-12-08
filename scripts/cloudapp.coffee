@@ -7,8 +7,6 @@ HtmlParser = require "htmlparser"
 module.exports = (robot) ->
   robot.hear /http:\/\/p.wbno.de\/(.*)/i, (msg) ->
     msg.http(msg).get() (err, res, body) ->
-      $('a.embed')
-      
       handler = new HtmlParser.DefaultHandler()
       parser  = new HtmlParser.Parser handler
       parser.parseComplete body
